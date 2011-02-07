@@ -1,0 +1,54 @@
+NAME
+    File::Slurp::Chomp - Add autochomping capability to File::Slurp
+
+VERSION
+    version 0.01
+
+SYNOPSIS
+    Instead of:
+
+     use File::Slurp qw(slurp ...);
+
+    use:
+
+     use File::Slurp::Chomp qw(slurp ...);
+
+    and in addition to File::Slurp's features, you can also:
+
+     my $scalar = read_file('path', chomp=>1);
+     my @array  = slurp    ('path', chomp=>1);
+
+    You can also import read_file_cq or slurp_cq (short for "chomp & quiet")
+    as a shortcut for:
+
+     read_file('path', chomp=>1, err_mode=>'quiet', ...);
+
+DESCRIPTION
+    Autochomping is supposed to be in the upcoming version of File::Slurp,
+    but I'm tired of waiting so this module is a band-aid solution. It wraps
+    read_file() (and slurp()) so it handles the chomp option.
+
+FUNCTIONS
+    For the list of functions available, see File::Slurp. Below are
+    functions introduced by File::Slurp::Chomp:
+
+  read_file_cq($path, %opts)
+    Shortcut for:
+
+     read_file('path', chomp=>1, err_mode=>'quiet', ...)
+
+  slurp_cq($path, %opts)
+    Alias for read_file_cq().
+
+SEE ALSO
+    File::Slurp, obviously.
+
+AUTHOR
+    Steven Haryanto <stevenharyanto@gmail.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2011 by Steven Haryanto.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+

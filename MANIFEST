@@ -8,8 +8,7 @@ README
 dist.ini
 lib/File/Slurp/Chomp.pm
 t/00-compile.t
-t/01-export-file-slurp.t
-t/02-read_file.t
-t/03-read_file_cq.t
+t/00-file-slurp.t
+t/01-basics.t
 t/release-pod-coverage.t
 t/release-pod-syntax.t

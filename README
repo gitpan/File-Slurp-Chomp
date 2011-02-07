@@ -2,7 +2,7 @@ NAME
     File::Slurp::Chomp - Add autochomping capability to File::Slurp
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
     Instead of:
@@ -28,17 +28,44 @@ DESCRIPTION
     but I'm tired of waiting so this module is a band-aid solution. It wraps
     read_file() (and slurp()) so it handles the chomp option.
 
+    This module also offers read_file_cq (or slurp_cq), so if you like me
+    often write this:
+
+     my $var   = read_file('/some/config/var', err_mode=>'quiet');
+     chomp($var) if defined($var);
+
+     my @lines = read_file('/some/config/file', err_mode=>'quiet');
+     chomp for @lines;
+
+    you can now write this:
+
+     my $var   = slurp_cq('/some/config/var');
+     my @lines = slurp_cq('/some/config/file');
+
 FUNCTIONS
     For the list of functions available, see File::Slurp. Below are
     functions introduced by File::Slurp::Chomp:
+
+  read_file_c($path, %opts)
+    Shortcut for:
+
+     read_file('path', chomp=>1, ...)
+
+    Alias: slurp_c
 
   read_file_cq($path, %opts)
     Shortcut for:
 
      read_file('path', chomp=>1, err_mode=>'quiet', ...)
 
-  slurp_cq($path, %opts)
-    Alias for read_file_cq().
+    Alias: slurp_cq
+
+  read_file_q($path, %opts)
+    Shortcut for:
+
+     read_file('path', err_mode=>'quiet', ...)
+
+    Alias: slurp_q
 
 SEE ALSO
     File::Slurp, obviously.

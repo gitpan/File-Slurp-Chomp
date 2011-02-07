@@ -1,5 +1,8 @@
 #!perl -T
 
+# tests to see that standard File::Slurp behaviour (e.g. default exports) is not
+# changed
+
 use 5.010;
 use strict;
 use warnings;

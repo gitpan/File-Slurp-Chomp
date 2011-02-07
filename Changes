@@ -1,5 +1,10 @@
 Revision history for File-Slurp-Chomp
 
+0.02    2011-02-04
+
+        Add read_file_c/slurp_c and read_file_q/slurp_q.
+
+
 0.01    2011-02-04
 
         First release.
